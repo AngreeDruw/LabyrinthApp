@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Maze.Classes.vartwo
+namespace Maze.Classes
 {
     public class Cell
     {

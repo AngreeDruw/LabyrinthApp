@@ -46,21 +46,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Generation\Maze1.cs" />
-    <Compile Include="Classes\Generation\Maze2.cs" />
-    <Compile Include="Classes\MazeBase.cs" />
-    <Compile Include="Classes\vartwo\Cell.cs" />
-    <Compile Include="Classes\vartwo\Helpers.cs" />
-    <Compile Include="Classes\vartwo\MazeTwoBase.cs" />
+    <Compile Include="Classes\Cell.cs" />
+    <Compile Include="Classes\Helpers.cs" />
+    <Compile Include="Classes\MazeTwoBase.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Classes\Helpers.cs" />
-    <Compile Include="Interface\IMazeGeneration.cs" />
-    <Compile Include="Interface\MazeBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
