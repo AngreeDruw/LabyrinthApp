@@ -19,21 +19,25 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
-            //maze = new MazeTwoBase();
         }
 
         private void btnRun_Click(object sender, EventArgs e)
         {
             maze = new MazeTwoBase();
             maze.RenderSpeed = (byte)nbSpeedRender.Value;
+            maze.CountRow = (int)nbRows.Value;
+            maze.CountCol = (int)nbCols.Value;
+            maze.Init();
             maze.graphics = pictureBox1.CreateGraphics();
 
             maze.graphics.Clear(Color.White);
-            //maze.GenerationMatrix();
-
+            //pictureBox1.Image = maze.bitmap;
             maze.Render();
-            maze.Start(10, 10);
-            //gr.DrawEllipse(new Pen(Color.Red, 20), new Rectangle(10, 10, 20, 20)) ;
+            maze.Start(1, 1);
+            //pictureBox1.Image = maze.bitmap;
+
+            //pictureBox1.Image = maze.RenderBitmap();
+            //pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -43,7 +47,7 @@ namespace WindowsFormsApp1
 
         private void nbSpeedRender_ValueChanged(object sender, EventArgs e)
         {
-            maze.graphics = pictureBox1.CreateGraphics();
+            //maze.graphics = pictureBox1.CreateGraphics();
         }
     }
 }

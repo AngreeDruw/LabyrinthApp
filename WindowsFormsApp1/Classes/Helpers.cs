@@ -22,4 +22,10 @@ namespace Maze.Classes
         public bool Wall = true;
     }
 
+    public class ImageSettings
+    {
+        public int Width = 50;
+        public int Height = 50;
+    }
+
 }

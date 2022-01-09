@@ -28,23 +28,24 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.nbSpeedRender = new System.Windows.Forms.NumericUpDown();
             this.btnRun = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.nbCols = new System.Windows.Forms.NumericUpDown();
+            this.nbRows = new System.Windows.Forms.NumericUpDown();
             this.lCols = new System.Windows.Forms.Label();
             this.lRows = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.nbSpeedRender = new System.Windows.Forms.NumericUpDown();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nbSpeedRender)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.nbCols)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbRows)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -60,9 +61,12 @@
             // 
             this.pictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.InitialImage = null;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(987, 538);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
@@ -77,82 +81,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(174, 538);
             this.panel2.TabIndex = 2;
-            // 
-            // btnRun
-            // 
-            this.btnRun.Location = new System.Drawing.Point(6, 83);
-            this.btnRun.Name = "btnRun";
-            this.btnRun.Size = new System.Drawing.Size(75, 23);
-            this.btnRun.TabIndex = 1;
-            this.btnRun.Text = "Run";
-            this.btnRun.UseVisualStyleBackColor = true;
-            this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.numericUpDown2);
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Controls.Add(this.lCols);
-            this.groupBox1.Controls.Add(this.lRows);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(174, 77);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Параметры матрицы";
-            // 
-            // lCols
-            // 
-            this.lCols.AutoSize = true;
-            this.lCols.Location = new System.Drawing.Point(87, 47);
-            this.lCols.Name = "lCols";
-            this.lCols.Size = new System.Drawing.Size(27, 13);
-            this.lCols.TabIndex = 3;
-            this.lCols.Text = "Cols";
-            // 
-            // lRows
-            // 
-            this.lRows.AutoSize = true;
-            this.lRows.Location = new System.Drawing.Point(87, 26);
-            this.lRows.Name = "lRows";
-            this.lRows.Size = new System.Drawing.Size(34, 13);
-            this.lRows.TabIndex = 2;
-            this.lRows.Text = "Rows";
-            // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(6, 19);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(75, 20);
-            this.numericUpDown1.TabIndex = 4;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
-            // 
-            // numericUpDown2
-            // 
-            this.numericUpDown2.Location = new System.Drawing.Point(6, 45);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
-            255,
-            0,
-            0,
-            0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(75, 20);
-            this.numericUpDown2.TabIndex = 5;
-            this.numericUpDown2.Value = new decimal(new int[] {
-            20,
-            0,
-            0,
-            0});
             // 
             // nbSpeedRender
             // 
@@ -172,6 +100,82 @@
             0});
             this.nbSpeedRender.ValueChanged += new System.EventHandler(this.nbSpeedRender_ValueChanged);
             // 
+            // btnRun
+            // 
+            this.btnRun.Location = new System.Drawing.Point(6, 83);
+            this.btnRun.Name = "btnRun";
+            this.btnRun.Size = new System.Drawing.Size(75, 23);
+            this.btnRun.TabIndex = 1;
+            this.btnRun.Text = "Run";
+            this.btnRun.UseVisualStyleBackColor = true;
+            this.btnRun.Click += new System.EventHandler(this.btnRun_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.nbCols);
+            this.groupBox1.Controls.Add(this.nbRows);
+            this.groupBox1.Controls.Add(this.lCols);
+            this.groupBox1.Controls.Add(this.lRows);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(174, 77);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Параметры матрицы";
+            // 
+            // nbCols
+            // 
+            this.nbCols.Location = new System.Drawing.Point(6, 45);
+            this.nbCols.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.nbCols.Name = "nbCols";
+            this.nbCols.Size = new System.Drawing.Size(75, 20);
+            this.nbCols.TabIndex = 5;
+            this.nbCols.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
+            // nbRows
+            // 
+            this.nbRows.Location = new System.Drawing.Point(6, 19);
+            this.nbRows.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.nbRows.Name = "nbRows";
+            this.nbRows.Size = new System.Drawing.Size(75, 20);
+            this.nbRows.TabIndex = 4;
+            this.nbRows.Value = new decimal(new int[] {
+            20,
+            0,
+            0,
+            0});
+            // 
+            // lCols
+            // 
+            this.lCols.AutoSize = true;
+            this.lCols.Location = new System.Drawing.Point(87, 47);
+            this.lCols.Name = "lCols";
+            this.lCols.Size = new System.Drawing.Size(27, 13);
+            this.lCols.TabIndex = 3;
+            this.lCols.Text = "Cols";
+            // 
+            // lRows
+            // 
+            this.lRows.AutoSize = true;
+            this.lRows.Location = new System.Drawing.Point(87, 26);
+            this.lRows.Name = "lRows";
+            this.lRows.Size = new System.Drawing.Size(34, 13);
+            this.lRows.TabIndex = 2;
+            this.lRows.Text = "Rows";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -184,11 +188,11 @@
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.nbSpeedRender)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nbSpeedRender)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbCols)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nbRows)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -203,8 +207,8 @@
         private System.Windows.Forms.Label lCols;
         private System.Windows.Forms.Label lRows;
         private System.Windows.Forms.NumericUpDown nbSpeedRender;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown nbCols;
+        private System.Windows.Forms.NumericUpDown nbRows;
     }
 }
 

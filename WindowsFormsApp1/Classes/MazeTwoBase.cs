@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace Maze.Classes
 {
@@ -14,6 +10,8 @@ namespace Maze.Classes
         private Random _random;
         private Graphics _graphics;
         Colors colors = new Colors();
+        public ImageSettings imageSettings { get; }
+        public Bitmap bitmap { get; set; }
 
         private int _visitedCells = 0;
         public int CellWidth { get; set; } = 20;
@@ -41,8 +39,14 @@ namespace Maze.Classes
         public MazeTwoBase()
         {
             _random = new Random();
-            CellWidth = 20;
-            CellHeight = 20;
+            imageSettings = new ImageSettings();
+            imageSettings.Width = 1000;//CountCol * CellWidth + (CountCol * 10);
+            imageSettings.Height = 1000;//CountRow * CellHeight + (CountRow * 10);
+            bitmap = new Bitmap(imageSettings.Width, imageSettings.Height);
+
+            CellWidth = bitmap.Width / CountCol - 10;
+            CellHeight = bitmap.Height / CountRow - 10;
+
             Init();
         }
 
@@ -67,6 +71,7 @@ namespace Maze.Classes
                 }
             }
             InitBorder();
+            graphics = Graphics.FromImage(bitmap);
         }
 
         public void InitBorder()
@@ -110,9 +115,9 @@ namespace Maze.Classes
             {
                 Matrix[x, y].Visited = true;
                 Matrix[x, y].Render(colors.VisitNow);
-                Thread.Sleep(20);
+                if (RenderSpeed < 255) Thread.Sleep(255 - RenderSpeed);
                 Step(x, y);
-                Thread.Sleep(20);
+                if (RenderSpeed < 255) Thread.Sleep(255 - RenderSpeed);
                 Matrix[x, y].Render(colors.Visited);
             }
         }
@@ -155,6 +160,7 @@ namespace Maze.Classes
             {
                 Matrix[x, y].RightWall.Wall = false;
                 Matrix[x + 1, y].LeftWall.Wall = false;
+                Matrix[x, y].Render(colors.VisitNow);
                 StepByStep(x + 1, y);
             }
         }
@@ -165,6 +171,7 @@ namespace Maze.Classes
             {
                 Matrix[x, y].LeftWall.Wall = false;
                 Matrix[x - 1, y].RightWall.Wall = false;
+                Matrix[x, y].Render(colors.VisitNow);
                 StepByStep(x - 1, y);
             }
         }
@@ -175,6 +182,7 @@ namespace Maze.Classes
             {
                 Matrix[x, y].UpWall.Wall = false;
                 Matrix[x, y - 1].DownWall.Wall = false;
+                Matrix[x, y].Render(colors.VisitNow);
                 StepByStep(x, y -1);
             }
         }
@@ -185,8 +193,18 @@ namespace Maze.Classes
             {
                 Matrix[x, y].DownWall.Wall = false;
                 Matrix[x, y + 1].UpWall.Wall = false;
+                Matrix[x, y].Render(colors.VisitNow);
                 StepByStep(x, y + 1);
             }
+        }
+
+        public Bitmap RenderBitmap()
+        {
+            graphics = Graphics.FromImage(bitmap);
+            Render();
+            bitmap.Save("D:\\l.bmp");
+            return bitmap;
+
         }
 
     }
